@@ -96,16 +96,25 @@ frontend/
 
 ### Architecture Diagram
 
-```flowchart TD
-  A[User Interface] -->|Chat, Upload, Select| B[Next.js Frontend]
-  B --> C[API Calls via lib/api.ts]
-  C --> D[FastAPI Routers]
-  D --> E[CrewAI Workflows]
-  E --> F[Agents and Tools]
-  F --> G[External APIs (EODHD, OpenAI)]
-  E --> H[Pydantic Models]
-  D --> I[Response to Frontend]
-  B --> J[Zustand State]
+```
+[User Interface]
+     │
+     ▼
+[Next.js Frontend (private)]
+     │
+[lib/api.ts → API calls]
+     │
+     ▼
+[FastAPI Routers (public backend)]
+     │
+     ▼
+[CrewAI Workflows]
+     │       │
+     │       └──→ [Agents and Tools → External APIs (EODHD, OpenAI)]
+     │
+     └──→ [Pydantic Models → Response Formatting]
+     ▼
+[Frontend Render & Zustand State]
 ```
 
 ---
