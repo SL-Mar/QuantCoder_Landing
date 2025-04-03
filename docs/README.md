@@ -96,8 +96,7 @@ frontend/
 
 ### Architecture Diagram
 
-```mermaid
-flowchart TD
+```flowchart TD
   A[User Interface] -->|Chat, Upload, Select| B[Next.js Frontend]
   B --> C[API Calls via lib/api.ts]
   C --> D[FastAPI Routers]
