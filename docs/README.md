@@ -97,16 +97,16 @@ frontend/
 ### Architecture Diagram
 
 ```mermaid
-graph TD
+flowchart TD
   A[User Interface] -->|Chat, Upload, Select| B[Next.js Frontend]
   B --> C[API Calls via lib/api.ts]
   C --> D[FastAPI Routers]
   D --> E[CrewAI Workflows]
-  E --> F[Agents + Tools]
+  E --> F[Agents and Tools]
   F --> G[External APIs (EODHD, OpenAI)]
-  E --> H[Pydantic Output Models]
+  E --> H[Pydantic Models]
   D --> I[Response to Frontend]
-  B --> J[State Management (Zustand)]
+  B --> J[Zustand State]
 ```
 
 ---
